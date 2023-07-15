@@ -23,15 +23,31 @@
     </header>
 
     <main class="container mx-auto px-4 py-8">
-        <h2 class="text-2xl mb-4">Welcome to Zillow Demo!</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper mauris ut felis blandit ultrices.
-            Nulla ultricies a lectus vel tempor. Proin pretium elit vitae iaculis dapibus. Phasellus placerat sapien
-            ac mi rutrum consectetur. Duis non aliquam leo, non sollicitudin velit. Sed hendrerit, dui id scelerisque
-            ultricies, lectus nulla efficitur eros, a egestas mauris dui vitae tortor. Integer efficitur neque at
-            tellus pellentesque, non pharetra risus bibendum. Nullam sagittis hendrerit magna, ut varius erat
-            sollicitudin nec.</p>
+        <h2 class="text-2xl mb-4">Welcome to Zillow chatbot Demo!</h2>
+        <p>Click on the icon located at the bottom right corner to start an amazing conversation with Zillbot</p>
     </main>
+    <script>
+        // Open the chatbot automatically when the page loads
+        function openChatbot() {
+            const chatbot = document.querySelector('bpw-webchat');
 
+            if (chatbot && chatbot.bpReady) {
+                chatbot.open();
+            } else {
+                setTimeout(openChatbot, 500);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', openChatbot);
+
+        // Chatbot toggle button
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+
+        chatbotToggle.addEventListener('click', () => {
+            const chatbot = document.querySelector('bpw-webchat');
+            chatbot.open();
+        });
+    </script>
     <footer class="bg-gray-800 py-4">
         <div class="container mx-auto px-4">
             <p class="text-center text-gray-300">&copy; 2023 Zillow Demo. All rights reserved.</p>
